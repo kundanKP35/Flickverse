@@ -13,8 +13,7 @@ const Contact = () => {
         <div className={styles.grid_container}>
           <div className={styles.grid_item}>
             <i>
-              {" "}
-              <MdHome className={styles.icon} />{" "}
+              <MdHome className={styles.icon} />
             </i>
 
             <address>
@@ -25,8 +24,8 @@ const Contact = () => {
           </div>
           <div className={styles.grid_item}>
             <i>
-              {" "}
-              <MdEmail className={styles.icon} />{" "}
+              
+              <MdEmail className={styles.icon} />
             </i>
 
             <a className={styles.mail_link} href="mailto:clickMart01@gmail.com">
@@ -35,8 +34,8 @@ const Contact = () => {
           </div>
           <div className={styles.grid_item}>
             <i>
-              {" "}
-              <MdPhone className={styles.icon} />{" "}
+              
+              <MdPhone className={styles.icon} />
             </i>
 
             <a className={styles.call_link} href="tel:+916389276893">
@@ -45,8 +44,8 @@ const Contact = () => {
           </div>
           <div className={styles.grid_item}>
             <i>
-              {" "}
-              <MdTimer className={styles.icon} />{" "}
+              
+              <MdTimer className={styles.icon} />
             </i>
 
             <p>Monday - Friday 10 AM - 6 PM</p>
