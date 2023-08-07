@@ -24,7 +24,6 @@ const Contact = () => {
           </div>
           <div className={styles.grid_item}>
             <i>
-              
               <MdEmail className={styles.icon} />
             </i>
 
@@ -34,7 +33,6 @@ const Contact = () => {
           </div>
           <div className={styles.grid_item}>
             <i>
-              
               <MdPhone className={styles.icon} />
             </i>
 
@@ -44,11 +42,10 @@ const Contact = () => {
           </div>
           <div className={styles.grid_item}>
             <i>
-              
               <MdTimer className={styles.icon} />
             </i>
 
-            <p>Monday - Friday 10 AM - 6 PM</p>
+            <p>Monday Friday 10 AM to 6 PM</p>
           </div>
         </div>
       </div>
@@ -67,7 +64,7 @@ const Contact = () => {
           ></iframe>
         </div>
         <div className={styles.contact_form_container}>
-          <h2>We'd Love To Hear From You</h2>
+          <h2>We&apos;d Love To Hear From You</h2>
           <ContactForm />
         </div>
       </div>
