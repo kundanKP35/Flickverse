@@ -274,4 +274,16 @@
     align-items: center;
     flex-wrap: wrap;
   }
+
+  .movie_details {
+    width: 100%;
+  }
+
+  .genres_container span {
+    padding: 0.2rem 0.5rem;
+    margin-right: 0.3rem;
+    margin-bottom: 0.3rem;
+    border-radius: 0.4rem;
+  }
+  
 }
