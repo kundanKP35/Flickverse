@@ -1,10 +1,19 @@
-*{
-    padding:0;
-    margin:0;
-    box-sizing: border-box;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+    body{
+        @apply bg-[#000] text-white;
+    }
+
+    header {
+        @apply fixed top-0 z-50 flex w-full items-center justify-between px-4 py-3 transition-all lg:px-10 lg:py-4;
+    }
 }
 
-body{
-    background-color: #000;
-    color:#fff;
+@layer components {
+    .navbarLink {
+        @apply cursor-pointer text-sm font-medium transition duration-[.4s] hover:text-[#b01507];
+    }
 }

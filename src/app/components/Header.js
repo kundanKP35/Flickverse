@@ -1,68 +1,66 @@
 "use client";
-import styles from "@/app/styles/navbar.module.css";
+import { UserCircleIcon, SearchIcon } from "@heroicons/react/solid";
 import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
-import { CgCloseR, CgMenu } from "react-icons/cg";
+import { useState, useEffect } from "react";
+import BasicMenu from "./BasicMenu";
 
 const Header = () => {
-  const [openMenu, setOpenMenu] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
-      <header className={styles.header}>
-        <div className={styles.navbarBrand}>
+      <header className={`${isScrolled && "bg-[#000]"}`}>
+        <div className="flex items-center space-x-2 md:space-x-10">
           <Link href="/">
-            <Image src="/nav-logo.svg" alt="KFLIX" width={150} height={45} />
+            <img
+              src="/nav-logo.svg"
+              alt="KFLIX"
+              width={100}
+              height={100}
+              className="cursor-pointer object-contain"
+            />
           </Link>
+
+          <BasicMenu />
+
+          <ul className="hidden space-x-4 md:flex">
+            <li className="navbarLink">
+              <Link href="/">Home</Link>
+            </li>
+            <li className="navbarLink">
+              <Link href="/movies">TV Shows</Link>
+            </li>
+            <li className="navbarLink">
+              <Link href="/movies">Movies</Link>
+            </li>
+            {/* <li className="navbarLink">
+              <Link href="/">My Lists</Link>
+            </li> */}
+          </ul>
         </div>
 
-        <nav className={styles.navbar}>
-          <div className={openMenu ? `${styles.active}` : ""}>
-            <ul className={styles.navbarList}>
-              <li className={styles.navbarItem}>
-                <Link
-                  className={styles.navbarLink}
-                  href="/"
-                  onClick={() => setOpenMenu(false)}
-                >
-                  Home
-                </Link>
-              </li>
-              <li className={styles.navbarItem}>
-                <Link
-                  className={styles.navbarLink}
-                  href="/movies"
-                  onClick={() => setOpenMenu(false)}
-                >
-                  Movies
-                </Link>
-              </li>
-              <li className={styles.navbarItem}>
-                <Link
-                  className={styles.navbarLink}
-                  href="/contact"
-                  onClick={() => setOpenMenu(false)}
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
-
-            <div className={styles["mobile-navbar-btn"]}>
-              <CgMenu
-                name="menu-outline"
-                className={styles["mobile-nav-icon"]}
-                onClick={() => setOpenMenu(true)}
-              />
-              <CgCloseR
-                name="close-outline"
-                className={`${styles["mobile-nav-icon"]} ${styles["close-outline"]}`}
-                onClick={() => setOpenMenu(false)}
-              />
-            </div>
-          </div>
-        </nav>
+        <div className="flex items-center space-x-4">
+          <SearchIcon className="h-6 w-6" />
+          <Link href="/account">
+            <UserCircleIcon className="cursor-pointer h-6 w-6" />
+          </Link>
+        </div>
       </header>
     </>
   );
