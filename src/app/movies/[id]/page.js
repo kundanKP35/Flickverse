@@ -1,54 +1,64 @@
 import React from "react";
-import styles from "@/app/styles/common.module.css";
 import Link from "next/link";
 import { getMovieDetails, getSimilarMovies } from "@/utils/requests";
 
 const MovieDetails = async ({ params }) => {
-  const IMAGE_BASE_URL = "https://www.themoviedb.org/t/p/w220_and_h330_face";
+  const IMAGE_BASE_URL = "https://www.themoviedb.org/t/p/original";
   const movieDetails = await getMovieDetails(params.id);
   const similarMovies = await getSimilarMovies(params.id);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.single_card_section}>
-        <div className={styles.movie_image}>
+    <div className="px-4 md:px-10 mt-[6rem]">
+      <div className="flex flex-col md:flex-row md:justify-start items-center">
+        <div className="w-full md:w-[60%] md:h-full">
           <img
             src={IMAGE_BASE_URL + movieDetails.backdrop_path}
             alt={movieDetails.title}
+            className="w-full h-auto md:h-full"
           />
         </div>
-        <div className={styles.movie_details}>
-          <h3>{movieDetails.title}</h3>
-          <div className={styles.genres_container}>
-            {movieDetails.genres.map((genre) => {
-              return <span key={genre.id}>{genre.name}</span>;
-            })}
+        <div className="md:pl-8 md:w-[40%] md:mt-0 mt-4">
+          <h3 className="text-xl md:text-[1.5rem]">{movieDetails.title}</h3>
+          <div className="mt-4">
+            {movieDetails.genres.map((genre) => (
+              <span
+                key={genre.id}
+                className="bg-red-600 text-white px-2 py-1 mr-2 mb-2 rounded"
+              >
+                {genre.name}
+              </span>
+            ))}
           </div>
-          <p style={{ marginTop: "0.5rem" }}>{movieDetails.overview}</p>
+          <p className="mt-4 text-sm">{movieDetails.overview}</p>
         </div>
       </div>
 
-      <div className={styles.similar_movies_container}>
-        <h2>Similar Movies</h2>
-        <div className={styles.similar_movies}>
-          {similarMovies.map((movie) => {
-            return (
-              <div key={movie.id}>
-                <Link
-                  href={"/movies/" + movie.id}
-                  style={{ textDecoration: "none" }}
-                >
+      <div className="mt-20">
+        <h2 className="text-center md:text-left text-2xl font-semibold">
+          Similar Movies
+        </h2>
+        <div className="flex flex-wrap justify-center md:justify-between mt-4">
+          {similarMovies.map((movie) => (
+            <div
+              key={movie.id}
+              className="overflow-hidden w-[11rem] my-4 mx-3 transition-transform transform hover:-translate-y-1"
+            >
+              <Link href={"/movies/" + movie.id}>
+                <div className="h-60 overflow-hidden cursor-pointer">
                   <img
+                    className="object-cover w-full h-full"
                     src={IMAGE_BASE_URL + movie.poster_path}
                     alt={movie.title}
-                    style={{ width: "100%", height: "200px" }}
                   />
-
-                    <h5>{movie.title}</h5>
-                </ Link>
-              </div>
-            );
-          })}
+                </div>
+                <div className="text-sm">
+                  <h2 className="text-sm font-normal text-white mt-1">
+                    {movie.title.substring(0, 20)}
+                  </h2>
+                </div>
+              </Link>
+            </div>
+          ))}
         </div>
       </div>
     </div>

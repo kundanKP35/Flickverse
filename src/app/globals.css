@@ -4,16 +4,29 @@
 
 @layer base{
     body{
-        @apply bg-[#000] text-white;
+        @apply bg-[#000] text-white hide-scroll;
     }
 
     header {
         @apply fixed top-0 z-50 flex w-full items-center justify-between px-4 py-3 transition-all lg:px-10 lg:py-4;
     }
+
 }
 
 @layer components {
     .navbarLink {
         @apply cursor-pointer text-sm font-medium transition duration-[.4s] hover:text-[#b01507];
     }
+
+    .heroButton {
+        @apply flex items-center gap-x-2 rounded px-4 py-1 text-sm font-semibold transition hover:opacity-75 md:py-2 md:px-6 md:text-xl;
+      }
+}
+
+.hide-scroll ::-webkit-scrollbar {
+    display: none;
+}
+.hide-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }

@@ -39,13 +39,13 @@ export default function BasicMenu() {
         }}
       >
         <MenuItem onClick={handleClose}>
-          <Link href="/">Home</Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Link href="/movies">TV Shows</Link>
+          <Link href="/shows">TV Shows</Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <Link href="/movies">Movies</Link>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Link href="/contact">Contact</Link>
         </MenuItem>
         {/* <MenuItem onClick={handleClose}>
           <Link href="/my-list">My List</Link>
