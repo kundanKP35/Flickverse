@@ -1,11 +1,17 @@
+
 import React from "react";
 import Link from "next/link";
-import { getMovieDetails, getSimilarMovies } from "@/utils/requests";
+import { getMovieDetails, getSimilarMovies,getTrailerURL } from "@/utils/requests";
+import TrailerPlayer from "@/app/components/ShowTrailer";
 
 const MovieDetails = async ({ params }) => {
   const IMAGE_BASE_URL = "https://www.themoviedb.org/t/p/original";
   const movieDetails = await getMovieDetails(params.id);
   const similarMovies = await getSimilarMovies(params.id);
+
+
+  const trailerURL = await getTrailerURL(params.id);
+
 
   return (
     <div className="px-4 md:px-10 mt-[6rem]">
@@ -30,9 +36,10 @@ const MovieDetails = async ({ params }) => {
             ))}
           </div>
           <p className="mt-4 text-sm">{movieDetails.overview}</p>
+          <TrailerPlayer trailerURL={trailerURL} />
         </div>
-      </div>
 
+      </div>
       <div className="mt-20">
         <h2 className="text-center md:text-left text-2xl font-semibold">
           Similar Movies

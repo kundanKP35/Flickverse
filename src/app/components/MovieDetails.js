@@ -32,12 +32,12 @@ const MovieDetails = ({ movie, showPlayer, setShowPlayer, trailerURL }) => {
 
           <div className="flex space-x-3 pl-6">
             <button
-              className="heroButton bg-white text-black"
+              className="heroButton bg-white text-[#E50914]"
               onClick={() => {
                 setShowPlayer(true);
               }}
             >
-              <FaPlay className="h-4 w-4 text-black md:h-7 md:w-7" />
+              <FaPlay className="h-2 w-3 text-[#E50914] md:h-5 md:w-5" />
               Play
             </button>
 

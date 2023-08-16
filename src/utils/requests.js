@@ -73,3 +73,32 @@ export const getSimilarShows = async (id) => {
     const data = await res.json();
     return data.results;
 }
+
+
+export const getTrailerURL = async(movieId) => {
+    const apiUrl = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US&append_to_response=videos`;
+  
+    return fetch(apiUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        const trailerIndex = data.videos.results.findIndex(
+          (element) => element.type === 'Trailer'
+        );
+  
+        return `https://www.youtube.com/watch?v=${data.videos?.results[trailerIndex]?.key}`;
+      });
+  }
+
+export const getShowTrailerURL = async(movieId) => {
+    const apiUrl = `https://api.themoviedb.org/3/tv/${movieId}?api_key=${API_KEY}&language=en-US&append_to_response=videos`;
+  
+    return fetch(apiUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        const trailerIndex = data.videos.results.findIndex(
+          (element) => element.type === 'Trailer'
+        );
+  
+        return `https://www.youtube.com/watch?v=${data.videos?.results[trailerIndex]?.key}`;
+      });
+  }
