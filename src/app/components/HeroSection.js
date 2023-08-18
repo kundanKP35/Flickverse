@@ -15,8 +15,6 @@ const HeroSection = ({ moviePosters }) => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(`data::: `, data);
-
         const trailerIndex = data.videos.results.findIndex(
           (element) => element.type === "Trailer"
         );

@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import BasicMenu from "./BasicMenu";
 
 const Header = () => {
+  
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -31,9 +32,7 @@ const Header = () => {
             <img
               src="/nav-logo.svg"
               alt="KFLIX"
-              width={120}
-              height={100}
-              className="cursor-pointer object-contain"
+              className=" w-[10rem] cursor-pointer object-contain md:w-[14rem]"
             />
           </Link>
 
@@ -72,8 +71,10 @@ const Header = () => {
               <Link href="/">My Lists</Link>
             </li> */}
           </ul>
-          {/* <SearchIcon className="h-6 w-6" />
-          <Link href="/account">
+          <Link href="/search">
+            <SearchIcon className="h-6 w-6 cursor-pointer" />
+          </Link>
+          {/* <Link href="/account">
             <UserCircleIcon className="cursor-pointer h-6 w-6" />
           </Link> */}
         </div>
