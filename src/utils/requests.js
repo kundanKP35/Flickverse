@@ -44,8 +44,9 @@ export const getRomanceMovies = async () => {
     return data.results
 }
 
-export const searchMoviesAndShows = async (query) => {
-    const res = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}`);
+
+export const searchMoviesAndShows = async (query,category) => {
+    const res = await fetch(`https://api.themoviedb.org/3/search/${category}?api_key=${API_KEY}&query=${query}`);
     const data = await res.json();
     if (data.length === 0) {
         toast.error("No movies found");

@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { getMovieDetails, getSimilarMovies,getTrailerURL } from "@/utils/requests";
 import TrailerPlayer from "@/app/components/ShowTrailer";
+import AddToList from "@/app/components/AddToList";
 
 const MovieDetails = async ({ params }) => {
   const IMAGE_BASE_URL = "https://www.themoviedb.org/t/p/original";
@@ -37,6 +38,7 @@ const MovieDetails = async ({ params }) => {
           </div>
           <p className="mt-4 text-sm">{movieDetails.overview}</p>
           <TrailerPlayer trailerURL={trailerURL} />
+          <AddToList movieId={params.id}/>
         </div>
 
       </div>
