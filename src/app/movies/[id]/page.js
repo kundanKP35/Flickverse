@@ -37,8 +37,10 @@ const MovieDetails = async ({ params }) => {
             ))}
           </div>
           <p className="mt-4 text-sm">{movieDetails.overview}</p>
+          <div className="flex justify-start items-center">
           <TrailerPlayer trailerURL={trailerURL} />
-          <AddToList movieId={params.id}/>
+          <AddToList movieDetails={movieDetails} />
+          </div>
         </div>
 
       </div>

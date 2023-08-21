@@ -2,6 +2,7 @@ import './globals.css'
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { Lato } from 'next/font/google'
+import { toast,ToastContainer } from 'react-toastify';
  
 const lato = Lato({
   weight: ['300','400','700','900'],
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
         <Header />
         {children}
         <Footer />
+        <ToastContainer />
       </body>
     </html>
   )

@@ -47,9 +47,9 @@ export default function BasicMenu() {
         <MenuItem onClick={handleClose}>
           <Link href="/contact">Contact</Link>
         </MenuItem>
-        {/* <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handleClose}>
           <Link href="/my-list">My List</Link>
-        </MenuItem> */}
+        </MenuItem>
       </Menu>
     </div>
   );

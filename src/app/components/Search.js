@@ -4,7 +4,7 @@ import { searchMoviesAndShows } from "@/utils/requests";
 import styles from "@/app/styles/common.module.css";
 import MovieCard from "./MovieCard";
 import ShowCard from "./ShowCard";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const SearchPage = () => {
@@ -71,7 +71,6 @@ const SearchPage = () => {
           <div className="h-[80vh]"></div>
         )}
       </div>
-      <ToastContainer />
     </>
   );
 };

@@ -67,9 +67,9 @@ const Header = () => {
             <li className="navbarLink">
               <Link href="/contact" className="font-bold">Contact</Link>
             </li>
-            {/* <li className="navbarLink">
-              <Link href="/">My Lists</Link>
-            </li> */}
+            <li className="navbarLink">
+              <Link href="/my-list">My Lists</Link>
+            </li>
           </ul>
           <Link href="/search">
             <SearchIcon className="h-6 w-6 cursor-pointer" />
